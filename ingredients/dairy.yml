@@ -7,3 +7,6 @@ ingredients:
 
   - name: Feta
     allergies: dairy
+  
+  - name: Sour cream
+    allergies: dairy
