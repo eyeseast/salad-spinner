@@ -1,7 +1,11 @@
 ingredients:
-  - Barley
+  - name: Barley
+    id: barley
+    allergies: gluten
   - Brown rice
-  - Bulgar wheat
-  - Farro
+  - name: Bulgar wheat
+    allergies: gluten
+  - name: Farro
+    allergies: gluten
   - Quinoa
   - Wild rice
