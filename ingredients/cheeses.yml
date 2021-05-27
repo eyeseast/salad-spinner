@@ -1,0 +1,9 @@
+ingredients:
+  - name: Cheddar
+    allergies: dairy
+  
+  - name: Goat cheese
+    allergies: dairy
+
+  - name: Feta
+    allergies: dairy
