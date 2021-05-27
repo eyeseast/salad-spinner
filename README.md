@@ -1,2 +1,3 @@
-# salad-spinner
-Let's make friends with salad
+# Salad spinner
+
+Let's make friends with salad.
