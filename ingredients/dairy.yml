@@ -1,12 +1,8 @@
-ingredients:
-  - name: Cheddar
-    allergies: dairy
-  
-  - name: Goat cheese
-    allergies: dairy
+name: Dairy
+allergies: [dairy]
 
-  - name: Feta
-    allergies: dairy
-  
-  - name: Sour cream
-    allergies: dairy
+ingredients:
+  - Cheddar
+  - Goat cheese
+  - Feta
+  - Sour cream
