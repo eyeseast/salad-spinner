@@ -12,15 +12,9 @@
 <script>
 	export let ingredients = {};
 	export let types = {};
-
-	let layers = Object.keys(types);
 </script>
 
-<svelte:head>
-	<title>Salad Spinner</title>
-</svelte:head>
-
-<h1>Salad spinner</h1>
+<h1>Ingredients</h1>
 
 <ul class="types">
 	{#each Object.values(types) as type}
@@ -28,13 +22,10 @@
 	{/each}
 </ul>
 
-<div class="layers">
-	{#each Object.entries(ingredients) as [layer, ingredients]}
-		<h2>{types[layer].name}</h2>
-		<ul class="ingredients">
-			{#each ingredients as ingredient}
-				<li>{ingredient.name}</li>
-			{/each}
-		</ul>
+<ul class="ingredients">
+	{#each Object.values(ingredients) as group}
+		{#each group as ingredient}
+			<li>{ingredient.name}</li>
+		{/each}
 	{/each}
-</div>
+</ul>

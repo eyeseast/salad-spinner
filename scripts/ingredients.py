@@ -15,7 +15,7 @@ def main():
     """
     Walk through ROOT and parse things
     """
-    ingredients = {}
+    ingredients = {"types": {}}
     for path in ROOT.iterdir():
         if path.is_dir():
             continue
@@ -24,6 +24,7 @@ def main():
         ingredients[path.stem] = list(
             parse_ingredients(group.pop("ingredients"), type=path.stem, **group)
         )
+        ingredients["types"][path.stem] = group
 
     json.dump(ingredients, sys.stdout)
 
