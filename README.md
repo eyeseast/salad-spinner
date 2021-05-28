@@ -8,9 +8,9 @@ A salad ingredient looks like this:
 
 ```json
 {
-  "id": "romaine-lettuce",
-  "name": "Romaine lettuce",
-  "type": "greens"
+	"id": "romaine-lettuce",
+	"name": "Romaine lettuce",
+	"type": "greens"
 }
 ```
 
@@ -34,12 +34,12 @@ name: Grains
 ingredients:
   - name: Barley
     id: barley
-    allergies: gluten
+    allergies: [gluten]
   - Brown rice
   - name: Bulgar wheat
-    allergies: gluten
+    allergies: [gluten]
   - name: Farro
-    allergies: gluten
+    allergies: [gluten]
   - Quinoa
   - Wild rice
 ```
