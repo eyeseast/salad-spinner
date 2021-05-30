@@ -8,7 +8,10 @@ import yaml
 from pathlib import Path
 from slugify import slugify
 
-ROOT = Path(__file__).parent.parent / "ingredients"
+ROOT = Path(__file__).parent.parent.parent / "ingredients"
+
+ALLOWED_TYPES = {".yml", ".md"}
+SKIP = {"README.md"}
 
 
 def main():
@@ -17,7 +20,7 @@ def main():
     """
     ingredients = {"types": {}}
     for path in ROOT.iterdir():
-        if path.is_dir():
+        if path.suffix not in ALLOWED_TYPES or path.name in SKIP:
             continue
 
         group = yaml.safe_load(path.read_text())
