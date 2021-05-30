@@ -2,6 +2,13 @@
 
 Let's get the best ingredients we can find and get out of their way. Add everything you want in a salad here.
 
+- [Greens](greens.yml)
+- [Vegetables](vegetables.yml)
+- [Legumes](legumes.yml)
+- [Dairy](dairy.yml)
+- [Grains](grains.yml)
+- [Proteins](proteins.yml)
+
 Simple ingredients, like [greens](greens.yml), look like this:
 
 ```yml
