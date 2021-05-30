@@ -1,6 +1,6 @@
 <script>
-	import { onMount } from 'svelte';
-	import { layers } from '$lib/stores.js';
+	import { onMount } from "svelte";
+	import { layers } from "$lib/stores.js";
 
 	export let name;
 	export let id;

@@ -1,5 +1,5 @@
 <script context="module">
-	import { assets } from '$app/paths';
+	import { assets } from "$app/paths";
 
 	export async function load({ page, fetch, session, context }) {
 		const res = await fetch(`${assets}/ingredients.json`);
@@ -10,8 +10,8 @@
 </script>
 
 <script>
-	import Layer from '$lib/Layer.svelte';
-	import { layers } from '$lib/stores.js';
+	import Layer from "$lib/Layer.svelte";
+	import { layers } from "$lib/stores.js";
 
 	export let ingredients = {};
 	export let types = {};

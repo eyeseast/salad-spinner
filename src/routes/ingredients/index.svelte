@@ -1,5 +1,5 @@
 <script context="module">
-	import { assets } from '$app/paths';
+	import { assets } from "$app/paths";
 
 	export async function load({ page, fetch, session, context }) {
 		const res = await fetch(`${assets}/ingredients.json`);

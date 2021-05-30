@@ -1,4 +1,4 @@
-import { writable } from 'svelte/store';
+import { writable } from "svelte/store";
 
 function createLayerStore() {
 	const { set, subscribe, update } = writable([]);
@@ -10,7 +10,7 @@ function createLayerStore() {
 		},
 		remove(index) {
 			update(layers => layers.filter((l, i) => i !== index));
-		}
+		},
 	};
 }
 
