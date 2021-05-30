@@ -10,11 +10,16 @@
 </script>
 
 <script>
+	import { onMount } from "svelte";
 	import Layer from "$lib/Layer.svelte";
 	import { layers } from "$lib/stores.js";
 
 	export let ingredients = {};
 	export let types = {};
+
+	onMount(() => {
+		layers.restore();
+	});
 </script>
 
 <svelte:head>
