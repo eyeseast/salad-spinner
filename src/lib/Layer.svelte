@@ -1,18 +1,24 @@
 <script>
 	import { onMount } from 'svelte';
+	import { layers } from '$lib/stores.js';
+
 	export let name;
 	export let id;
 	export let index;
 	export let ingredients = [];
 
-	let current;
+	$: current = $layers[index].ingredient;
 
 	export function choose() {
-		current = ingredients[Math.floor(Math.random() * ingredients.length)];
+		return ingredients[Math.floor(Math.random() * ingredients.length)];
+	}
+
+	function set() {
+		$layers[index].ingredient = choose();
 	}
 
 	onMount(() => {
-		choose();
+		set();
 	});
 </script>
 
@@ -23,7 +29,8 @@
 			<li class:current={ingredient === current}>{ingredient.name}</li>
 		{/each}
 	</ul>
-	<button on:click={choose}>Choose</button>
+	<button on:click={set}>Choose</button>
+	<button on:click={layers.remove(index)}>Remove</button>
 </div>
 
 <style>

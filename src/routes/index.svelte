@@ -1,6 +1,5 @@
 <script context="module">
 	import { assets } from '$app/paths';
-	import Layer from '$lib/Layer.svelte';
 
 	export async function load({ page, fetch, session, context }) {
 		const res = await fetch(`${assets}/ingredients.json`);
@@ -11,14 +10,11 @@
 </script>
 
 <script>
+	import Layer from '$lib/Layer.svelte';
+	import { layers } from '$lib/stores.js';
+
 	export let ingredients = {};
 	export let types = {};
-
-	let layers = [];
-
-	function add(type) {
-		layers = [...layers, { type, ingredient: null }];
-	}
 </script>
 
 <svelte:head>
@@ -29,17 +25,12 @@
 
 <ul class="types">
 	{#each Object.entries(types) as [id, type]}
-		<li><button on:click={e => add(id)}>{type.name}</button></li>
+		<li><button on:click={e => layers.add(id)}>{type.name}</button></li>
 	{/each}
 </ul>
 
 <div class="layers">
-	<!--
-	{#each Object.entries(ingredients) as [layer, ingredients], index}
-		<Layer id={layer} name={types[layer].name} {ingredients} {index} />
-	{/each}
-	-->
-	{#each layers as layer, index}
+	{#each $layers as layer, index (layer)}
 		<Layer
 			id={layer.type}
 			name={types[layer.type].name}
