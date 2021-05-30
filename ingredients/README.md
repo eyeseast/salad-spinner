@@ -1,8 +1,4 @@
-# Salad spinner
-
-Let's make friends with salad.
-
-## Ingredients
+# Ingredients
 
 Let's get the best ingredients we can find and get out of their way. Add everything you want in a salad here.
 
