@@ -19,6 +19,10 @@
 
 	onMount(() => {
 		layers.restore();
+
+		layers.subscribe(layers => {
+			window.layers = layers;
+		});
 	});
 </script>
 
