@@ -15,8 +15,5 @@
 		"prettier-plugin-svelte": "^2.2.0",
 		"svelte": "^3.34.0"
 	},
-	"type": "module",
-	"dependencies": {
-		"js-yaml": "^4.1.0"
-	}
+	"type": "module"
 }

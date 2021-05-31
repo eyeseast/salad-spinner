@@ -28,13 +28,14 @@
 
 <h1>Salad spinner</h1>
 
+<h2>Add something</h2>
 <ul class="types">
 	{#each Object.entries(types) as [id, type]}
 		<li><button on:click={e => layers.add(id)}>{type.name}</button></li>
 	{/each}
 </ul>
 
-<div class="layers">
+<form class="layers">
 	{#each $layers as layer, index (layer)}
 		<Layer
 			id={layer.type}
@@ -43,4 +44,4 @@
 			{index}
 		/>
 	{/each}
-</div>
+</form>

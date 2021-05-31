@@ -23,18 +23,14 @@
 </script>
 
 <div class="layer" {id} data-index={index}>
-	<h2>{name}</h2>
-	<ul class="ingredients">
-		{#each ingredients as ingredient}
-			<li class:current={ingredient === current}>{ingredient.name}</li>
-		{/each}
-	</ul>
+	<label
+		>{name}
+		<select name="{id}-{index}">
+			{#each ingredients as ingredient}
+				<option selected={ingredient === current}>{ingredient.name}</option>
+			{/each}
+		</select>
+	</label>
 	<button on:click={set}>Choose</button>
 	<button on:click={layers.remove(index)}>Remove</button>
 </div>
-
-<style>
-	.current {
-		font-weight: bold;
-	}
-</style>
