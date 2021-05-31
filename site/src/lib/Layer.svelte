@@ -25,12 +25,15 @@
 <div class="layer" {id} data-index={index}>
 	<label
 		>{name}
-		<select name="{id}-{index}">
+		<select name={id}>
+			<option value="" />
 			{#each ingredients as ingredient}
-				<option selected={ingredient === current}>{ingredient.name}</option>
+				<option selected={ingredient === current} value={ingredient.name}
+					>{ingredient.name}</option
+				>
 			{/each}
 		</select>
 	</label>
-	<button on:click={set}>Choose</button>
+	<button on:click={set}>Shuffle</button>
 	<button on:click={layers.remove(index)}>Remove</button>
 </div>

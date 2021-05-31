@@ -44,4 +44,8 @@
 			{index}
 		/>
 	{/each}
+
+	<div class="submit">
+		<input type="submit" value="Save this salad" />
+	</div>
 </form>

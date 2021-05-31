@@ -6,12 +6,14 @@ import json
 import sys
 import yaml
 from pathlib import Path
-from slugify import slugify
+from slugify import Slugify
 
 ROOT = Path(__file__).parent.parent.parent / "ingredients"
 
 ALLOWED_TYPES = {".yml", ".md"}
 SKIP = {"README.md"}
+
+slugify = Slugify(to_lower=True)
 
 
 def main():
