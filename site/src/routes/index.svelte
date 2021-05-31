@@ -19,9 +19,8 @@
 
 	onMount(() => {
 		layers.restore();
-
-		layers.subscribe(layers => {
-			window.layers = layers;
+		layers.subscribe(value => {
+			window.layers = value;
 		});
 	});
 </script>
@@ -53,3 +52,24 @@
 		<input type="submit" value="Save this salad" />
 	</div>
 </form>
+
+<style>
+	:global(body) {
+		font-family: sans-serif;
+		font-size: 18px;
+	}
+
+	ul.types {
+		padding-inline-start: 0;
+	}
+
+	ul.types li {
+		display: inline-block;
+		list-style: none;
+	}
+
+	ul.types li button {
+		font-size: 16px;
+		margin: 0.25em;
+	}
+</style>

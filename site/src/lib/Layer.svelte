@@ -1,5 +1,5 @@
 <script>
-	import { onMount } from "svelte";
+	import { afterUpdate } from "svelte";
 	import { layers } from "$lib/stores.js";
 
 	export let name;
@@ -11,13 +11,12 @@
 
 	$: current = $layers[index].ingredient;
 
-	export function choose() {
+	function choose() {
 		return ingredients[Math.floor(Math.random() * ingredients.length)];
 	}
 
 	function set(ingredient) {
 		if (!ingredient) ingredient = choose();
-		select.value = ingredient;
 		$layers[index].ingredient = ingredient;
 	}
 
@@ -25,8 +24,8 @@
 		$layers[index].ingredient = ingredients.find(item => e.target.value === item.name);
 	}
 
-	onMount(() => {
-		// set(current);
+	afterUpdate(() => {
+		select.value = current.name;
 	});
 </script>
 
@@ -45,3 +44,10 @@
 	<button on:click|preventDefault={e => set()}>Shuffle</button>
 	<button on:click|preventDefault={e => layers.remove(index)}>Remove</button>
 </div>
+
+<style>
+	.layer {
+		display: flex;
+		margin-bottom: 0.5em;
+	}
+</style>
