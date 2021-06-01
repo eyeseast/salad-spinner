@@ -67,4 +67,8 @@
 	.types {
 		margin-bottom: 1.5em;
 	}
+
+	.types button {
+		margin-bottom: 0.5em;
+	}
 </style>
