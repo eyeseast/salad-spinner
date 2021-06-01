@@ -29,16 +29,26 @@
 	<title>Salad Spinner</title>
 </svelte:head>
 
-<h1>Salad spinner</h1>
+<header>
+	<h1>Salad spinner</h1>
+	<p class="lead">Let's have a summer of salad.</p>
+</header>
 
-<h2>Add something</h2>
-<ul class="types">
-	{#each Object.entries(types) as [id, type]}
-		<li><button on:click={e => layers.add(id)}>{type.name}</button></li>
-	{/each}
-</ul>
+<div class="add">
+	<h2>Add something</h2>
+	<ul class="types nav nav-pills nav-fill">
+		{#each Object.entries(types) as [id, type]}
+			<li class="nav-item">
+				<button class="btn btn-light {id}" on:click={e => layers.add(id)}
+					>{type.name}</button
+				>
+			</li>
+		{/each}
+	</ul>
+</div>
 
 <form class="layers">
+	<h2>Ingredients</h2>
 	{#each $layers as layer, index (layer)}
 		<Layer
 			id={layer.type}
@@ -49,27 +59,12 @@
 	{/each}
 
 	<div class="submit">
-		<input type="submit" value="Save this salad" />
+		<input class="btn btn-primary" type="submit" value="Save this salad" />
 	</div>
 </form>
 
 <style>
-	:global(body) {
-		font-family: sans-serif;
-		font-size: 18px;
-	}
-
-	ul.types {
-		padding-inline-start: 0;
-	}
-
-	ul.types li {
-		display: inline-block;
-		list-style: none;
-	}
-
-	ul.types li button {
-		font-size: 16px;
-		margin: 0.25em;
+	.types {
+		margin-bottom: 1.5em;
 	}
 </style>

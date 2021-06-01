@@ -25,14 +25,25 @@
 	}
 
 	afterUpdate(() => {
-		select.value = current.name;
+		if (current) {
+			select.value = current?.name;
+		} else {
+			set();
+		}
 	});
 </script>
 
-<div class="layer" {id} data-index={index}>
-	<label
-		>{name}
-		<select name={id} bind:this={select} on:input={onChange}>
+<div class="layer row" id="{index}-{id}" data-index={index}>
+	<label class="form-label" for="select-{index}-{id}">{name}</label>
+
+	<div class="col">
+		<select
+			id="select-{index}-{id}"
+			class="form-select"
+			name={id}
+			bind:this={select}
+			on:input={onChange}
+		>
 			<option value="" />
 			{#each ingredients as ingredient}
 				<option selected={ingredient.id === current?.id} value={ingredient.name}
@@ -40,14 +51,20 @@
 				>
 			{/each}
 		</select>
-	</label>
-	<button on:click|preventDefault={e => set()}>Shuffle</button>
-	<button on:click|preventDefault={e => layers.remove(index)}>Remove</button>
+	</div>
+	<div class="buttons col">
+		<button class="btn btn-secondary btn-sm" on:click|preventDefault={e => set()}
+			>Shuffle</button
+		>
+		<button
+			class="btn btn-secondary btn-sm"
+			on:click|preventDefault={e => layers.remove(index)}>Remove</button
+		>
+	</div>
 </div>
 
 <style>
 	.layer {
-		display: flex;
-		margin-bottom: 0.5em;
+		margin-bottom: 1.5em;
 	}
 </style>
